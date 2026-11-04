@@ -48,7 +48,7 @@ export function LoginLayout({
         </section>
 
         <footer className="col-span-full flex flex-col gap-1 text-center text-[8px] font-semibold tracking-widest text-white/75 [text-shadow:0_1px_8px_rgba(0,0,0,0.4)] md:flex-row md:justify-between md:text-left md:text-[9px]">
-          <span>DMAR · WORKSPACE MEKANIK</span>
+          <span>DMAR · WORKSPACE CREW MEKANIK</span>
           <span>Catat pekerjaan harian Anda.</span>
         </footer>
       </div>

@@ -9,6 +9,7 @@ import { MainLayout } from './layouts/MainLayout';
 import { MechanicWorkspaceProvider } from './contexts/MechanicWorkspaceContext';
 import { NotFoundPage } from './components/ui/NotFoundPage';
 import { showError } from './utils/notifications';
+import { RouteTransition } from './components/ui/RouteTransition';
 
 export default function App() {
   const workspace = useMechanicWorkspace();
@@ -73,7 +74,9 @@ export default function App() {
         {accessCard}
         {workspace.error && !isReportFormRoute && <Alert kind="error">{workspace.error}</Alert>}
         {workspace.notice && <Alert kind="success">{workspace.notice}</Alert>}
-        <Outlet />
+        <RouteTransition>
+          <Outlet />
+        </RouteTransition>
       </MainLayout>
     </MechanicWorkspaceProvider>
   );

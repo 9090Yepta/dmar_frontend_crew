@@ -1,11 +1,6 @@
 import { useState, type SubmitEvent } from "react";
-import {
-  LuEye,
-  LuEyeOff,
-  LuLockKeyhole,
-  LuUserRound,
-  LuWrench,
-} from "react-icons/lu";
+import { LuEye, LuEyeOff, LuLockKeyhole, LuUserRound } from "react-icons/lu";
+import { FaHelmetSafety } from "react-icons/fa6";
 import type { User } from "../../types/mechanic";
 import { apiAssetUrl } from "../../services/apiClient";
 
@@ -46,9 +41,21 @@ export function AccessCard({
           <div className="avatar shrink-0">
             <div className="size-10 overflow-hidden rounded-full bg-primary/10 text-primary ring-1 ring-base-300 sm:size-12">
               {user.profileImageUrl ? (
-                <img src={apiAssetUrl(user.profileImageUrl)} alt={`Foto ${user.name}`} className="object-cover" />
+                <img
+                  src={apiAssetUrl(user.profileImageUrl)}
+                  alt={`Foto ${user.name}`}
+                  className="object-cover"
+                />
               ) : (
-                <span className="grid size-full place-items-center text-sm font-bold">{user.name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase()}</span>
+                <span className="grid size-full place-items-center text-sm font-bold">
+                  {user.name
+                    .split(/\s+/)
+                    .filter(Boolean)
+                    .slice(0, 2)
+                    .map((part) => part[0])
+                    .join("")
+                    .toUpperCase()}
+                </span>
               )}
             </div>
           </div>
@@ -88,14 +95,17 @@ export function AccessCard({
               href="/"
               aria-label="DMAR Mekanik"
             >
-              <span className="grid size-11 place-items-center rounded-[14px] border border-white/25 bg-amber-400 text-gray-700 shadow-lg shadow-black/15 backdrop-blur-lg">
-                <LuWrench className="size-5.75" aria-hidden="true" />
+              <span className="grid size-11 place-items-center rounded-[14px] border border-white/25 bg-white text-gray-700 shadow-lg shadow-black/15 backdrop-blur-lg">
+                <FaHelmetSafety
+                  className="size-5.75 text-blue-500"
+                  aria-hidden="true"
+                />
               </span>
               <span className="grid gap-0.5">
                 <small className="text-[9px] font-bold tracking-[.19em] text-gray-700">
                   WORKSPACE
                 </small>
-                <strong className="font-google-sans text-base font-bold text-[#56805f]">
+                <strong className="font-google-sans text-base font-bold text-[#1939ba]">
                   PORTAL DMAR-Mekanik
                 </strong>
               </span>
@@ -158,7 +168,7 @@ export function AccessCard({
           </span>
         </div>
 
-        <label className="flex w-fit cursor-pointer items-center gap-2 text-[11px] font-semibold text-gray-600">
+        <label className="flex w-fit cursor-pointer items-center gap-2 text-[11px] font-semibold text-amber-100">
           <input
             className="size-4 cursor-pointer accent-[#2e6039] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4d8252]"
             type="checkbox"
